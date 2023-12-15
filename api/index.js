@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const router_authentification = require("./routers/route_authentification.js");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -29,4 +30,5 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.log(err));
 
+app.use(router_authentification);
 app.listen(8000);
