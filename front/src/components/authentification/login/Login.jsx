@@ -24,7 +24,7 @@ export default function Login() {
           }, 5000);
         }
       })
-      .catch((err) => {
+      .catch(() => {
         error();
       });
   };

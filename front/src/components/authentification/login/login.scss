@@ -1,8 +1,12 @@
 .main {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .container_login {
+  width: 35%;
+  background-color: #282c34;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 2rem;

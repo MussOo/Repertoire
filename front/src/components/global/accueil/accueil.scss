@@ -1,3 +1,48 @@
 .main {
-  background-color: #282c34;
+  width: 100%;
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    .container_item {
+      background-color: white;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    h3 a {
+      color: #282c34;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      &:hover {
+        color: #61dafb;
+      }
+    }
+    .numero {
+      color: #282c34;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .email {
+      color: #282c34;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
