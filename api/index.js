@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const router_repertoire = require("./routers/route_repertoire.js");
 const router_authentification = require("./routers/route_authentification.js");
 const app = express();
 
@@ -31,4 +32,5 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(router_authentification);
+app.use(router_repertoire);
 app.listen(8000);
