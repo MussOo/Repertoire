@@ -1,6 +1,5 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
-
 const api = axios.create({
   baseURL: "http://localhost:8000",
 });
@@ -8,21 +7,7 @@ const api = axios.create({
 export function login(data) {
   let username = data.username;
   let password = data.password;
-  return api
-    .post("/api/login", { username, password })
-    .then(function (response) {
-      console.log("response ok", response.data);
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", response.data.user.username);
-        localStorage.setItem("_id", response.data.user._id);
-      }
-
-      return (window.location.href = "/");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  return api.post("/api/login", { username, password });
 }
 export function inscription(data) {
   let username = data.username;

@@ -2,16 +2,47 @@ import "./login.scss";
 import { login } from "../../../api/Login";
 import { useForm } from "react-hook-form";
 
+import { ToastContainer, toast } from "react-toastify";
 export default function Login() {
+  const success = () => toast("Utilisateur connecté", { type: "success" });
+  const error = () => toast("une erreur est survenue", { type: "error" });
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => login(data);
+  const onSubmit = (data) => {
+    login(data)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("username", res.data.user.username);
+          localStorage.setItem("_id", res.data.user._id);
+          success();
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 5000);
+        }
+      })
+      .catch((err) => {
+        error();
+      });
+  };
 
   return (
     <div className="main">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="container_login">
         <h3>Login</h3>
         <form method="post" onSubmit={handleSubmit(onSubmit)}>
