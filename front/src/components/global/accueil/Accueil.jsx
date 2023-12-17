@@ -1,5 +1,5 @@
-import React from "react";
+import "./accueil.scss";
 
 export default function Accueil() {
-  return <div>Accueil</div>;
+  return <div className="main">Accueil</div>;
 }

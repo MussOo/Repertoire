@@ -1,13 +1,18 @@
-import { useState } from "react";
-import redux from "../redux/reducer";
-import { redirect } from "react-router-dom";
+import { me } from "../api/Login";
 
-export default function RequireAuth() {
-  const { incremented, decremented } = redux.actions;
-  const store = redux.store;
-  if (store.getState().token == undefined) {
-    return redirect("/login");
+export default async function RequireAuth() {
+  let data = await me();
+  let result = false;
+
+  if (data) {
+    if (localStorage.getItem("_id") === data._id) {
+      result = true;
+    }
   }
-  console.log(store.getState());
+
+  if (result == false) {
+    localStorage.clear();
+    window.location.href = "/login";
+  }
   return 0;
 }
