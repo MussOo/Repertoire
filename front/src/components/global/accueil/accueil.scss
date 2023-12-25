@@ -1,23 +1,34 @@
 .main {
   width: 100%;
-  .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .container_reportoire {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 70%;
+    padding: 20px;
     .container_item {
-      background-color: white;
-      width: 350px;
+      width: 250px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      border: 3px solid #282c34;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    span {
+      overflow: hidden;
     }
     h3 a {
       color: #282c34;
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 15px;
       font-weight: 400;
       text-align: center;
       margin: 0;
@@ -29,20 +40,58 @@
     .numero {
       color: #282c34;
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: 15px;
       font-weight: 400;
-      text-align: center;
+      text-align: start;
       margin: 0;
       padding: 0;
     }
     .email {
       color: #282c34;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 15px;
       font-weight: 400;
-      text-align: center;
+      text-align: start;
       margin: 0;
       padding: 0;
+      a {
+        color: #282c34;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        text-align: start;
+        padding: 0;
+        &:hover {
+          color: #61dafb;
+        }
+      }
     }
   }
+  .action_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    .delete {
+      background-color: rgb(255, 58, 58);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+      &:hover {
+        background-color: red;
+        transform: scale(1.05);
+        transition: 0.1s;
+      }
+    }
+  }
+}
+
+.oneMore {
+  color: #282c34;
+  font-size: 40px;
+  font-weight: 400;
+}
+.oneMore:hover {
+  color: #61dafb;
 }
